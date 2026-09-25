@@ -855,6 +855,38 @@
           padding: 4rem 1.5rem;
         }
       }
+      @media (max-width: 600px) {
+        .header-inner {
+          padding: 0 1rem;
+          height: 72px;
+          gap: 0.75rem;
+        }
+        .imagem {
+          height: 56px;
+        }
+        .logo {
+          flex-shrink: 1;
+          min-width: 0;
+        }
+        .logo-main {
+          font-size: 20px;
+        }
+        .logo-sub {
+          font-size: 12px;
+        }
+        header .btn-cta {
+          display: none;
+        }
+        .hamburger {
+          margin-left: auto;
+        }
+        .mobile-menu {
+          top: 72px;
+        }
+        .hero {
+          padding-top: 72px;
+        }
+      }
     </style>
   </head>
   <body>
@@ -866,10 +898,10 @@
           <span class="logo-sub">Associadas</span>
         </a>
         <nav>
-          <a href="#areas">Areas de Atuacao</a>
+          <a href="#areas">Áreas de Atuação</a>
           <a href="#sobre">Sobre</a>
           <a href="#equipe">Equipe</a>
-          <a href="#avaliacoes">Avaliacoes</a>
+          <a href="#avaliacoes">Avaliações</a>
         </nav>
         <a href="#contato" class="btn-cta">Abrir Chamado</a>
         <button class="hamburger" id="hamburger" aria-label="Menu">
@@ -879,10 +911,10 @@
     </header>
 
     <div class="mobile-menu" id="mobileMenu">
-      <a href="#areas" onclick="closeMobile()">Areas de Atuacao</a>
+      <a href="#areas" onclick="closeMobile()">Áreas de Atuação</a>
       <a href="#sobre" onclick="closeMobile()">Sobre</a>
       <a href="#equipe" onclick="closeMobile()">Equipe</a>
-      <a href="#avaliacoes" onclick="closeMobile()">Avaliacoes</a>
+      <a href="#avaliacoes" onclick="closeMobile()">Avaliações</a>
       <a href="#contato" class="btn-cta" onclick="closeMobile()"
         >Abrir Chamado</a
       >
@@ -891,24 +923,24 @@
     <section class="hero" id="inicio">
       <div class="hero-decor"></div>
       <div class="hero-inner">
-        <div class="hero-tag">Advocacia especializada — Sao Vicente / SP</div>
-        <h1>Defendemos seus <em>direitos</em> com dedicacao e experiencia.</h1>
+        <div class="hero-tag">Advocacia especializada — São Vicente / SP</div>
+        <h1>Defendemos seus <em>direitos</em> com dedicação e experiência.</h1>
         <p class="hero-sub">
-          Assessoria juridica personalizada nas areas Civel, Trabalhista e
-          Imobiliaria Condominial. Mais de 27 anos de atuacao no mercado.
+          Assessoria jurídica personalizada nas áreas Cível, Trabalhista e
+          Imobiliária Condominial. Mais de 27 anos de atuação no mercado.
         </p>
         <div class="hero-btns">
           <a href="#contato" class="btn-cta">Abrir um chamado</a>
-          <a href="#areas" class="btn-outline">Conheca nossos servicos</a>
+          <a href="#areas" class="btn-outline">Conheça nossos serviços</a>
         </div>
       </div>
     </section>
 
     <section class="areas" id="areas">
       <div class="section-inner">
-        <div class="section-label fade-in">Areas de Atuacao</div>
+        <div class="section-label fade-in">Áreas de Atuação</div>
         <h2 class="section-title fade-in">
-          Atuamos nas principais areas do direito que protegem voce.
+          Atuamos nas principais áreas do direito que protegem você.
         </h2>
         <div class="areas-grid">
           <div class="area-card fade-in">
@@ -926,9 +958,9 @@
             </svg>
             <h3>Direito Civil</h3>
             <p>
-              Contratos, responsabilidade civil, cobranças, questoes familiares
-              e patrimoniais. Representamos seus interesses com precisao e
-              agilidade em todas as instancias.
+              Contratos, responsabilidade civil, cobranças, questões familiares
+              e patrimoniais. Representamos seus interesses com precisão e
+              agilidade em todas as instâncias.
             </p>
           </div>
           <div class="area-card fade-in">
@@ -947,7 +979,7 @@
             <h3>Direito Trabalhista</h3>
             <p>
               Defesa dos principais direitos trabalhistas: verbas rescisórias,
-              horas extras, assédio moral, estabilidades e demais questoes entre
+              horas extras, assédio moral, estabilidades e demais questões entre
               empregado e empregador.
             </p>
           </div>
@@ -963,11 +995,11 @@
               <rect x="18" y="28" width="12" height="10" />
               <line x1="24" y1="8" x2="24" y2="38" />
             </svg>
-            <h3>Direito Imobiliario Condominial</h3>
+            <h3>Direito Imobiliário Condominial</h3>
             <p>
-              Assessoria completa a condominios e proprietarios: inadimplencia,
-              convencoes, contratos, regularizacoes e conflitos entre
-              condominios, sindicos e administradoras.
+              Assessoria completa a condomínios e proprietários: inadimplência,
+              convenções, contratos, regularizações e conflitos entre
+              condomínios, síndicos e administradoras.
             </p>
           </div>
         </div>
@@ -977,28 +1009,28 @@
     <section class="sobre" id="sobre">
       <div class="sobre-inner">
         <div class="sobre-text fade-in">
-          <div class="section-label">Sobre o Escritorio</div>
-          <h2>Comprometidas com a excelencia juridica ha decadas.</h2>
+          <div class="section-label">Sobre o Escritório</div>
+          <h2>Comprometidas com a excelência jurídica há décadas.</h2>
           <p>
-            O escritorio Nunes Advogadas Associadas e dedicado a oferecer
-            servicos juridicos especializados em diversas areas do direito.
-            Nosso compromisso e fornecer solucoes juridicas excepcionais para
+            O escritório Nunes Advogadas Associadas é dedicado a oferecer
+            serviços jurídicos especializados em diversas áreas do direito.
+            Nosso compromisso é fornecer soluções jurídicas excepcionais para
             nossos clientes, garantindo que seus direitos e interesses sejam
-            protegidos com eficiencia e dedicacao.
+            protegidos com eficiência e dedicação.
           </p>
           <p>
-            Com uma trajetoria solida no mercado e atuacao focada na area
-            condominial, civil e trabalhista, atendemos pessoas fisicas e
-            condominios com o mesmo cuidado e atencao que cada caso merece.
+            Com uma trajetória sólida no mercado e atuação focada na área
+            condominial, civil e trabalhista, atendemos pessoas físicas e
+            condomínios com o mesmo cuidado e atenção que cada caso merece.
           </p>
           <div class="sobre-stats">
             <div class="stat-box">
               <div class="stat-num">27</div>
-              <div class="stat-label">Anos de experiencia</div>
+              <div class="stat-label">Anos de experiência</div>
             </div>
             <div class="stat-box">
               <div class="stat-num">3</div>
-              <div class="stat-label">Areas de atuacao</div>
+              <div class="stat-label">Áreas de atuação</div>
             </div>
             <div class="stat-box">
               <div class="stat-num">2</div>
@@ -1006,7 +1038,7 @@
             </div>
             <div class="stat-box">
               <div class="stat-num">SP</div>
-              <div class="stat-label">Sao Vicente</div>
+              <div class="stat-label">São Vicente</div>
             </div>
           </div>
         </div>
@@ -1025,7 +1057,7 @@
       <div class="section-inner">
         <div class="section-label fade-in">Nossa Equipe</div>
         <h2 class="section-title fade-in">
-          Conheca as profissionais que cuidam do seu caso.
+          Conheça as profissionais que cuidam do seu caso.
         </h2>
         <div class="equipe-grid">
           <div class="advogada-card fade-in">
@@ -1035,15 +1067,15 @@
                 alt="Dra. Ana Cristina B.F. Nunes"
               />
             </div>
-            <div class="advogada-oab">OAB/SP n 367587</div>
+            <div class="advogada-oab">OAB/SP nº 367587</div>
             <h3>Dra. Ana Cristina<br />B.F. Nunes</h3>
-            <h4>Pos-Graduada em Direito Imobiliario, Civil e Processo Civil</h4>
+            <h4>Pós-Graduada em Direito Imobiliário, Civil e Processo Civil</h4>
             <div class="divider-gold"></div>
             <p>
-              Com 27 anos de experiencia na area condominial, a Dra. Ana
-              Cristina construiu uma trajetoria solida e reconhecida no mercado
-              juridico de Sao Vicente. Sua especializacao em Direito
-              Imobiliario, Direito Civil e Processo Civil oferece aos clientes
+              Com 27 anos de experiência na área condominial, a Dra. Ana
+              Cristina construiu uma trajetória sólida e reconhecida no mercado
+              jurídico de São Vicente. Sua especialização em Direito
+              Imobiliário, Direito Civil e Processo Civil oferece aos clientes
               uma assessoria completa e segura.
             </p>
           </div>
@@ -1054,17 +1086,17 @@
                 alt="Dra. Mariana B.F. Nunes"
               />
             </div>
-            <div class="advogada-oab">OAB/SP n 495593</div>
+            <div class="advogada-oab">OAB/SP nº 495593</div>
             <h3>Dra. Mariana<br />B.F. Nunes</h3>
             <h4>
-              Bacharel em Direito - Direito Imobiliario, Civil e Processo Civil
+              Bacharel em Direito - Direito Imobiliário, Civil e Processo Civil
             </h4>
             <div class="divider-gold"></div>
             <p>
-              Bacharel em Direito com conhecimento e experiencia nas areas de
-              Direito Imobiliario, Direito Civil e Processo Civil. Atua na area
-              condominial, aliando formacao academica a experiencia pratica, com
-              uma trajetoria em constante crescimento no mercado juridico.
+              Bacharel em Direito com conhecimento e experiência nas áreas de
+              Direito Imobiliário, Direito Civil e Processo Civil. Atua na área
+              condominial, aliando formação acadêmica a experiência prática, com
+              uma trajetória em constante crescimento no mercado jurídico.
             </p>
           </div>
         </div>
@@ -1073,7 +1105,7 @@
 
     <section class="avaliacoes" id="avaliacoes">
       <div class="section-inner">
-        <div class="section-label fade-in">Avaliacoes</div>
+        <div class="section-label fade-in">Avaliações</div>
         <h2 class="section-title fade-in">O que dizem nossos clientes.</h2>
         <div class="aval-grid">
           <div class="aval-card fade-in">
@@ -1083,7 +1115,7 @@
               problema condominial com rapidez e profissionalismo. Recomendo a
               todos."
             </blockquote>
-            <div class="aval-author">— Cliente, Sao Vicente</div>
+            <div class="aval-author">— Cliente, São Vicente</div>
           </div>
           <div class="aval-card fade-in">
             <div class="aval-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
@@ -1096,11 +1128,11 @@
           <div class="aval-card fade-in">
             <div class="aval-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
             <blockquote>
-              "Equipe seria, comprometida e muito competente. Senti seguranca
+              "Equipe séria, comprometida e muito competente. Senti segurança
               desde a primeira consulta. Meu caso foi tratado com total
-              atencao."
+              atenção."
             </blockquote>
-            <div class="aval-author">— Cliente, Sao Vicente</div>
+            <div class="aval-author">— Cliente, São Vicente</div>
           </div>
         </div>
         <p
@@ -1132,10 +1164,10 @@
               </svg>
             </div>
             <div>
-              <div class="info-item-label">Endereco</div>
+              <div class="info-item-label">Endereço</div>
               <div class="info-item-text">
-                Av. Presidente Wilson, 89 — Sala 51<br />Edificio Orban —
-                Itarare<br />Sao Vicente / SP — 11320-001
+                Av. Presidente Wilson, 89 — Sala 51<br />Edifício Orban —
+                Itararé<br />São Vicente / SP — 11320-001
               </div>
             </div>
           </div>
@@ -1159,9 +1191,9 @@
               </svg>
             </div>
             <div>
-              <div class="info-item-label">Horario de atendimento</div>
+              <div class="info-item-label">Horário de atendimento</div>
               <div class="info-item-text">
-                Segunda a sexta: 9h as 18h<br />Sabados mediante agendamento
+                Segunda a sexta: 9h às 18h<br />Sábados mediante agendamento
               </div>
             </div>
           </div>
@@ -1169,7 +1201,7 @@
         <div class="form-card fade-in">
           <h3 class="form-title">Abrir Chamado</h3>
           <p class="form-sub">
-            Preencha o formulario. Sua mensagem chegara diretamente ao nosso
+            Preencha o formulário. Sua mensagem chegará diretamente ao nosso
             e-mail.
           </p>
           <form id="ticketForm" onsubmit="submitForm(event)">
@@ -1188,24 +1220,24 @@
               ><input type="email" placeholder="seu@email.com.br" required />
             </div>
             <div class="form-group">
-              <label>Area de interesse <span>*</span></label>
+              <label>Área de interesse <span>*</span></label>
               <select required>
-                <option value="" disabled selected>Selecione uma area</option>
+                <option value="" disabled selected>Selecione uma área</option>
                 <option>Direito Civil</option>
                 <option>Direito Trabalhista</option>
-                <option>Direito Imobiliario Condominial</option>
-                <option>Outra area</option>
+                <option>Direito Imobiliário Condominial</option>
+                <option>Outra área</option>
               </select>
             </div>
             <div class="form-group">
-              <label>Descricao resumida do caso (opcional)</label
+              <label>Descrição resumida do caso (opcional)</label
               ><textarea
-                placeholder="Descreva brevemente sua situacao..."
+                placeholder="Descreva brevemente sua situação..."
               ></textarea>
             </div>
             <button type="submit" class="btn-submit">Enviar mensagem</button>
             <p class="form-notice">
-              Suas informacoes sao tratadas com total sigilo e
+              Suas informações são tratadas com total sigilo e
               confidencialidade, conforme a LGPD.
             </p>
           </form>
@@ -1235,7 +1267,7 @@
         allowfullscreen
         loading="lazy"
         referrerpolicy="no-referrer-when-downgrade"
-        title="Localizacao"
+        title="Localização"
       ></iframe>
     </div>
 
@@ -1244,7 +1276,7 @@
         <div class="footer-logo">Nunes Advogadas Associadas</div>
         <div class="footer-divider"></div>
         <p class="footer-text">
-          Av. Presidente Wilson, 89 — Sala 51 — Edificio Orban — Itarare — Sao
+          Av. Presidente Wilson, 89 — Sala 51 — Edifício Orban — Itararé — São
           Vicente / SP — 11320-001<br />(13) 99152-7150
         </p>
         <p class="footer-copy">
