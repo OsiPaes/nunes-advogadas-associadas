@@ -32,8 +32,11 @@
         --serif: "Cormorant Garamond", Georgia, serif;
         --sans: "Lato", sans-serif;
       }
-      html {
+      html,
+      body {
         scroll-behavior: smooth;
+        max-width: 100%;
+        overflow-x: clip;
       }
       body {
         font-family: var(--sans);
