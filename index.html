@@ -5,6 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="format-detection" content="telephone=no" />
     <title>Nunes Advogadas Associadas</title>
+    <meta name="description" content="Escritório de advocacia em São Vicente/SP especializado em Direito Condominial, Civil e Trabalhista. Fale com a Dra. Ana Cristina e a Dra. Mariana Nunes." />
+    <link rel="icon" type="image/png" href="./imagem/favicon.png" />
+    <link rel="apple-touch-icon" href="./imagem/apple-touch-icon.png" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="pt_BR" />
+    <meta property="og:site_name" content="Nunes Advogadas Associadas" />
+    <meta property="og:title" content="Nunes Advogadas Associadas" />
+    <meta property="og:description" content="Advocacia em São Vicente/SP — Direito Condominial, Civil e Trabalhista. Atendimento pelo site ou WhatsApp." />
+    <meta property="og:url" content="https://osipaes.github.io/nunes-advogadas-associadas/" />
+    <meta property="og:image" content="https://osipaes.github.io/nunes-advogadas-associadas/imagem/compartilhar.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -1282,8 +1295,8 @@
           Vicente / SP — 11320-001<br />(13) 99152-7150
         </p>
         <p class="footer-copy">
-          © 2025 Nunes Advogadas Associadas. Todos os direitos reservados.
-          OAB/SP
+          © <span id="anoAtual">2026</span> Nunes Advogadas Associadas. Todos os direitos reservados.
+          OAB/SP 367.587 · OAB/SP 495.593
         </p>
       </div>
     </footer>
@@ -1329,6 +1342,8 @@
       document
         .querySelectorAll(".fade-in")
         .forEach((el) => observer.observe(el));
+      document.getElementById("anoAtual").textContent = new Date().getFullYear();
+
       function submitForm(e) {
         e.preventDefault();
         const form = document.getElementById("ticketForm");
