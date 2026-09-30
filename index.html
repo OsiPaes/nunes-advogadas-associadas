@@ -766,7 +766,7 @@
         width: 100%;
         height: 100%;
         border: none;
-        filter: grayscale(0.3);
+        filter: grayscale(0.45) sepia(0.35) contrast(0.95);
       }
 
       /* FOOTER */
@@ -846,6 +846,150 @@
         transform: translateY(0);
       }
 
+      /* BALANÇA (HERO) */
+      .balanca {
+        position: absolute;
+        right: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 380px;
+        height: 380px;
+        pointer-events: none;
+        overflow: visible;
+      }
+      .balanca * {
+        fill: none;
+        stroke: var(--gold);
+        stroke-width: 1.2;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-opacity: 0.55;
+      }
+      .balanca .draw {
+        stroke-dasharray: 1;
+        stroke-dashoffset: 1;
+        animation: desenhar 1.8s ease forwards;
+        animation-delay: var(--d, 0s);
+      }
+      .balanca-braco {
+        transform-box: view-box;
+        transform-origin: 200px 100px;
+        animation: balancar 8s ease-in-out 4.5s infinite;
+      }
+      @keyframes desenhar {
+        to {
+          stroke-dashoffset: 0;
+        }
+      }
+      @keyframes balancar {
+        0%, 100% { transform: rotate(0deg); }
+        25% { transform: rotate(1.5deg); }
+        75% { transform: rotate(-1.5deg); }
+      }
+
+      /* FOTOS DAS ADVOGADAS */
+      .advogada-photo img {
+        transition:
+          filter 0.9s ease,
+          transform 1.2s ease;
+      }
+      .advogada-photo::after {
+        transform-origin: left;
+        transition: transform 0.8s ease;
+      }
+      @media (hover: hover) {
+        .advogada-photo img {
+          filter: grayscale(1) sepia(0.15);
+        }
+        .advogada-photo::after {
+          transform: scaleX(0.2);
+        }
+        .advogada-card:hover .advogada-photo img {
+          filter: none;
+          transform: scale(1.04);
+        }
+        .advogada-card:hover .advogada-photo::after {
+          transform: scaleX(1);
+        }
+      }
+      /* No celular (sem mouse), a foto ganha cor ao aparecer na tela */
+      @media (hover: none) {
+        .advogada-card .advogada-photo img {
+          filter: grayscale(1) sepia(0.15);
+          transition-delay: 0.4s;
+        }
+        .advogada-card.visible .advogada-photo img {
+          filter: none;
+        }
+      }
+
+      /* BARRA DE LEITURA */
+      .barra-leitura {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 2px;
+        background: var(--gold);
+        transform: scaleX(0);
+        transform-origin: left;
+        z-index: 1001;
+        pointer-events: none;
+      }
+
+      /* ÍCONES DAS ÁREAS SE DESENHANDO (só com JS ativo) */
+      .anima .area-icon * {
+        stroke-dasharray: 1;
+        stroke-dashoffset: 1;
+        transition: stroke-dashoffset 1.4s ease;
+      }
+      .anima .area-card.visible .area-icon * {
+        stroke-dashoffset: 0;
+      }
+
+      /* FAÍSCAS (estrelas cadentes no topo) */
+      .faiscas {
+        position: absolute;
+        inset: 0;
+        overflow: hidden;
+        pointer-events: none;
+      }
+      .faisca {
+        position: absolute;
+        width: 130px;
+        height: 1px;
+        background: linear-gradient(
+          90deg,
+          rgba(223, 192, 120, 0.9),
+          rgba(223, 192, 120, 0)
+        );
+        opacity: 0;
+      }
+      .faisca::before {
+        content: "";
+        position: absolute;
+        left: -1px;
+        top: -1px;
+        width: 3px;
+        height: 3px;
+        border-radius: 50%;
+        background: #fff3d6;
+        box-shadow: 0 0 6px 2px rgba(223, 192, 120, 0.7);
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .faiscas {
+          display: none;
+        }
+        .balanca .draw {
+          animation: none;
+          stroke-dashoffset: 0;
+        }
+        .balanca-braco {
+          animation: none;
+        }
+      }
+
       /* RESPONSIVE */
       @media (max-width: 900px) {
         nav {
@@ -867,6 +1011,12 @@
         }
         .hero-inner {
           padding: 4rem 1.5rem;
+        }
+        .balanca {
+          width: 300px;
+          height: 300px;
+          right: -40px;
+          opacity: 0.45;
         }
       }
       @media (max-width: 600px) {
@@ -904,6 +1054,7 @@
     </style>
   </head>
   <body>
+    <div class="barra-leitura" id="barraLeitura" aria-hidden="true"></div>
     <header id="header">
       <div class="header-inner">
         <img src="./imagem/logo.png" alt="Logo" class="imagem" />
@@ -935,7 +1086,23 @@
     </div>
 
     <section class="hero" id="inicio">
+      <div class="faiscas" id="faiscas" aria-hidden="true"></div>
       <div class="hero-decor"></div>
+      <svg class="balanca" viewBox="0 0 400 400" aria-hidden="true">
+        <!-- base e coluna -->
+        <path class="draw" pathLength="1" style="--d: 0.3s" d="M140 372 H260" />
+        <path class="draw" pathLength="1" style="--d: 0.5s" d="M165 372 L200 346 L235 372" />
+        <path class="draw" pathLength="1" style="--d: 0.8s" d="M200 346 V100" />
+        <circle class="draw" pathLength="1" style="--d: 1.4s" cx="200" cy="84" r="12" />
+        <!-- braço com os pratos -->
+        <g class="balanca-braco">
+          <path class="draw" pathLength="1" style="--d: 1.6s" d="M200 100 H80 M200 100 H320" />
+          <path class="draw" pathLength="1" style="--d: 2.2s" d="M80 100 L48 205 M80 100 L112 205" />
+          <path class="draw" pathLength="1" style="--d: 2.2s" d="M320 100 L288 205 M320 100 L352 205" />
+          <path class="draw" pathLength="1" style="--d: 2.8s" d="M36 205 H124 Q80 252 36 205" />
+          <path class="draw" pathLength="1" style="--d: 2.8s" d="M276 205 H364 Q320 252 276 205" />
+        </g>
+      </svg>
       <div class="hero-inner">
         <div class="hero-tag">Advocacia especializada — São Vicente / SP</div>
         <h1>Defendemos seus <em>direitos</em> com dedicação e experiência.</h1>
@@ -1343,6 +1510,83 @@
         .querySelectorAll(".fade-in")
         .forEach((el) => observer.observe(el));
       document.getElementById("anoAtual").textContent = new Date().getFullYear();
+
+      // Números da seção "Sobre" sobem de 0 até o valor ao aparecer na tela
+      const contadorObs = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((e) => {
+            if (!e.isIntersecting) return;
+            contadorObs.unobserve(e.target);
+            const el = e.target;
+            const alvo = parseInt(el.dataset.alvo, 10);
+            const duracao = 1800;
+            const inicio = performance.now();
+            const passo = (agora) => {
+              const t = Math.min((agora - inicio) / duracao, 1);
+              const suave = 1 - Math.pow(1 - t, 3);
+              el.textContent = Math.round(alvo * suave);
+              if (t < 1) requestAnimationFrame(passo);
+            };
+            requestAnimationFrame(passo);
+          });
+        },
+        { threshold: 0.6 },
+      );
+      if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        document.querySelectorAll(".stat-num").forEach((el) => {
+          const n = parseInt(el.textContent, 10);
+          if (isNaN(n)) return;
+          el.dataset.alvo = n;
+          el.textContent = "0";
+          contadorObs.observe(el);
+        });
+      }
+
+      // Faíscas: uma estrela cadente dourada a cada poucos segundos, só no topo
+      const faiscas = document.getElementById("faiscas");
+      const aleatorio = (min, max) => min + Math.random() * (max - min);
+      function soltarFaisca() {
+        if (!document.hidden) {
+          const f = document.createElement("span");
+          f.className = "faisca";
+          f.style.left = aleatorio(35, 100) + "%";
+          f.style.top = aleatorio(0, 45) + "%";
+          faiscas.appendChild(f);
+          const angulo = "rotate(-" + aleatorio(25, 38) + "deg)";
+          f.animate(
+            [
+              { transform: angulo + " translateX(0)", opacity: 0 },
+              { opacity: 1, offset: 0.2 },
+              { transform: angulo + " translateX(-" + aleatorio(380, 560) + "px)", opacity: 0 },
+            ],
+            { duration: aleatorio(1300, 1900), easing: "ease-out" },
+          ).onfinish = () => f.remove();
+        }
+        setTimeout(soltarFaisca, aleatorio(2500, 6000));
+      }
+      if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        setTimeout(soltarFaisca, 4500);
+      }
+
+      // Barra de leitura: linha dourada no topo acompanha a rolagem
+      const barra = document.getElementById("barraLeitura");
+      const atualizarBarra = () => {
+        const total = document.documentElement.scrollHeight - window.innerHeight;
+        barra.style.transform = "scaleX(" + (total > 0 ? window.scrollY / total : 0) + ")";
+      };
+      window.addEventListener("scroll", atualizarBarra, { passive: true });
+      atualizarBarra();
+
+      // Ícones das áreas se desenham em traço ao aparecer, como a balança
+      if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        document.querySelectorAll(".area-icon").forEach((svg) => {
+          [...svg.children].forEach((el, i) => {
+            el.setAttribute("pathLength", "1");
+            el.style.transitionDelay = 0.3 + i * 0.35 + "s";
+          });
+        });
+        document.documentElement.classList.add("anima");
+      }
 
       function submitForm(e) {
         e.preventDefault();
